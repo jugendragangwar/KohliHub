@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 6%;
+    --foreground: 36 100% 95%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 36 100% 95%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 36 100% 95%;
+
+    --primary: 36 100% 60%;
+    --primary-foreground: 0 0% 6%;
+
+    --secondary: 195 100% 45%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 36 100% 60%;
+    --accent-foreground: 0 0% 6%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 36 100% 60%;
+
+    --radius: 0.75rem;
+
+    /* Premium cinematic gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 6%) 0%, hsl(0 0% 12%) 100%);
+    --gradient-overlay: linear-gradient(180deg, hsl(0 0% 6% / 0) 0%, hsl(0 0% 6% / 0.95) 100%);
+    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(36 100% 60% / 0.15) 0%, hsl(0 0% 6% / 0) 70%);
+    --gradient-accent: linear-gradient(135deg, hsl(36 100% 60%) 0%, hsl(25 100% 50%) 100%);
+    
+    /* Cinematic shadows */
+    --shadow-dramatic: 0 20px 60px -15px hsl(0 0% 0% / 0.8);
+    --shadow-glow: 0 0 60px hsl(36 100% 60% / 0.25);
+    --shadow-intense: 0 30px 90px -20px hsl(0 0% 0% / 0.9);
+    
+    /* Animation timing */
+    --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background: radial-gradient(ellipse at top, hsl(0 0% 10%) 0%, hsl(0 0% 6%) 100%);
+  }
+  
+  /* Film grain texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.4;
+    z-index: 9999;
+  }
+}
+
+/* Premium scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
