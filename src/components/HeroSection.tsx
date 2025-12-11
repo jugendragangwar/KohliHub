@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import Logo from "../assets/Logo.png";
-import heroMain from "@/assets/hero-main.png";
+import Logo from "../assets/Logo.webp";
+import heroMain from "@/assets/hero-main.webp";
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -38,7 +38,7 @@ const HeroSection = () => {
       className="relative h-screen w-full overflow-hidden flex items-center justify-center"
     >
       <div className="absolute top-6 left-6 z-20">
-        <img src={Logo} alt="Logo" className="w-32 md:w-40 object-contain" />
+        <img src={Logo} alt="Logo" className="w-32 md:w-44 object-contain" />
       </div>
       {/* Background Image with Parallax */}
       <div className="parallax-image absolute inset-0 md:top-14 w-full h-[150%] -top-[10%]">

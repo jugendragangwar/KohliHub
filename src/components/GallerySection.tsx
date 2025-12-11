@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import portraitIntense from "@/assets/portrait-intense.png";
+import portraitIntense from "@/assets/portrait-intense.webp";
 import trainingGym from "@/assets/training-gym.png";
-import luxuryCasual from "@/assets/luxury-casual.png";
-import actionCricket from "@/assets/action-cricket.png";
-import victoryCelebration from "@/assets/victory-celebration.png";
+import luxuryCasual from "@/assets/luxury-casual.webp";
+import actionCricket from "@/assets/action-cricket.webp";
+import victoryCelebration from "@/assets/victory-celebration.webp";
 
 const galleryImages = [
   {

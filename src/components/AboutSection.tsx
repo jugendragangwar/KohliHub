@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import kohli1 from "../assets/kohli1.png";
+import kohli1 from "../assets/kohli1.webp";
 import gsap from "gsap";
 
 const AboutSection = () => {
