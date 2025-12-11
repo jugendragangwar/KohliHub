@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import Logo from "../assets/Logo.png";
 import heroMain from "@/assets/hero-main.png";
 
 const HeroSection = () => {
@@ -10,19 +11,22 @@ const HeroSection = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
-      
+
       tl.from(titleRef.current, {
         y: 100,
         opacity: 0,
         duration: 1.2,
         ease: "power4.out",
-      })
-      .from(subtitleRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-      }, "-=0.6");
+      }).from(
+        subtitleRef.current,
+        {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+        },
+        "-=0.6"
+      );
     }, heroRef);
 
     return () => ctx.revert();
@@ -33,6 +37,9 @@ const HeroSection = () => {
       ref={heroRef}
       className="relative h-screen w-full overflow-hidden flex items-center justify-center"
     >
+      <div className="absolute top-6 left-6 z-20">
+        <img src={Logo} alt="Logo" className="w-32 md:w-40 object-contain" />
+      </div>
       {/* Background Image with Parallax */}
       <div className="parallax-image absolute inset-0 md:top-14 w-full h-[150%] -top-[10%]">
         <img
@@ -54,7 +61,8 @@ const HeroSection = () => {
           ref={titleRef}
           className="font-display text-7xl md:text-9xl font-bold tracking-tight mb-6"
           style={{
-            background: "linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--primary)) 100%)",
+            background:
+              "linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--primary)) 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -73,7 +81,9 @@ const HeroSection = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in-up">
-        <span className="text-sm text-muted-foreground tracking-widest uppercase">Scroll</span>
+        <span className="text-sm text-muted-foreground tracking-widest uppercase">
+          Scroll
+        </span>
         <div className="w-[2px] h-16 bg-gradient-to-b from-primary to-transparent animate-glow-pulse" />
       </div>
     </section>
